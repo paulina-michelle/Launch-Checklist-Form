@@ -1,8 +1,9 @@
 // Write your JavaScript code here!
-formSubmit.addEventListener("click", function(event){
+document.getElementById("formSubmit").addEventListener("click", function(event){
    event.preventDefault();
-   let
+   console.log("did this trigger");
  });
+
 
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
