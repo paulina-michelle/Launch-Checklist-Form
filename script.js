@@ -5,19 +5,21 @@ window.addEventListener("load", function() {
       console.log("did this trigger")});
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
-      let pilotName = document.querySelector("input[name=Pilot Name]");
-      console.log(pilotName.value);
-      let copilotName = document.querySelector("input[name=Co-Pilot Name]");
-      let fuelLevel = document.querySelector("input[name=Fuel Level]");
-      let cargoMass = document.querySelector("input[name=Cargo Mass]");
+      let pilotName = document.querySelector("input[name=pilotName]");
+      let copilotName = document.querySelector("input[name=copilotName]");
+      let fuelLevel = document.querySelector("input[name=fuelLevel]");
+      let cargoMass = document.querySelector("input[name=cargoMass]");
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("All fields are required!");
       }
-      // if (isNaN(pilotName.value) = true)
-      // if (isNaN(copilotName.value) = true)
-      // if (isNaN(fuelLevel.value) = false)
-      // if (isNaN(cargoMass.value) = false)
+      if (isNaN(pilotName.value) = fallse || (isNaN(copilotName.value) = false) {
+         alert("Make sure to enter valid information for each field.");
+      }
+      if (isNaN(fuelLevel.value) = true || isNaN(cargoMass.value) = true) {
+         alert("Make sure to enter valid information for each field.");
+      }
    });
+   
 });
 
 
