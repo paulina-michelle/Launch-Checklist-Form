@@ -1,7 +1,9 @@
 // Write your JavaScript code here!
-button.getElementById("formSubmit").addEventListener("click", function(event){
-   event.preventDefault()
+formSubmit.addEventListener("click", function(event){
+   event.preventDefault();
+   let
  });
+
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
