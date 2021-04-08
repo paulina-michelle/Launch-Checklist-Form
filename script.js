@@ -32,7 +32,7 @@ function updateCrewNames() {
 
 function updateFuelLevelStatus() {
    let userProvidedFuelLevel = input[fuelLevel];
-   if (userProvidedFuelLevel >= 10000) {//fuel level is above threshold then print below message... else add a line about fuel too low   
+   if (userProvidedFuelLevel >= 10000) {  
       document.getElementById("fuelStatus").innerHTML = input[fuelLevel] + "Fuel level is high enough for launch";
       document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
       document.getElementById("launchStatus").style.color = "green";
