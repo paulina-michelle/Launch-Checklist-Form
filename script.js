@@ -22,37 +22,48 @@ window.addEventListener("load", function() {
       }
    });
    
+   let userProvidedPilotName = document.querySelector("input[name=pilotName]");
+   let userProvidedCopilotName = document.querySelector("input[name=copilotName]");
+   let userProvidedFuelLevel = document.querySelector("input[name=fuelLevel]");
+   let userProvidedCargoMass = document.querySelector("input[name=cargoMass]");
+   
+   updateCrewNames(userProvidedPilotName, userProvidedCopilotName);
+   updateFuelLevelStatus(userProvidedFuelLevel);
+   updateCargoMassStatus(userProvidedCargoMass);
+
 });
 
 
-function updateCrewNames() {
-   document.getElementById("pilotStatus").innerHTML = "Pilot" + input[pilotName] + "is ready for launch";
-   document.getElementById("copilotStatus").innerHTML = "Co-pilot" + input[copilotName] + "is ready for launch";
+function updateCrewNames(userProvidedPilotName, userProvidedCopilotName) {
+   // let userProvidedPilotName = document.querySelector("input[name=pilotName]");
+   // let userProvidedCopilotName = document.querySelector("input[name=copilotName]");
+   document.getElementById("pilotStatus").innerHTML = "Pilot" + userProvidedPilotName + "is ready for launch";
+   document.getElementById("copilotStatus").innerHTML = "Co-pilot" + userProvidedCopilotName + "is ready for launch";
 }
 
-function updateFuelLevelStatus() {
-   let userProvidedFuelLevel = input[fuelLevel];
+function updateFuelLevelStatus(userProvidedFuelLevel) {
+   // let userProvidedFuelLevel = document.querySelector("input[name=fuelLevel]");
    if (userProvidedFuelLevel >= 10000) {  
-      document.getElementById("fuelStatus").innerHTML = input[fuelLevel] + "Fuel level is high enough for launch";
+      document.getElementById("fuelStatus").innerHTML = userProvidedFuelLevel + "Fuel level is high enough for launch";
       document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
       document.getElementById("launchStatus").style.color = "green";
    } else {
-      document.getElementById("faultyItems").style.visibility = visible;
-      document.getElementById("fuelStatus").innerHTML = input[fuelLevel] + "Fuel level is too low for launch";
+      document.getElementById("faultyItems").style.visibility = "visible";
+      document.getElementById("fuelStatus").innerHTML = userProvidedFuelLevel + "Fuel level is too low for launch";
       document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
       document.getElementById("launchStatus").style.color = "red";
    } 
 }
 
-function updateCargoMassStatus() {
-   let userProvidedCargoMass = input[cargoMass];
+function updateCargoMassStatus(userProvidedCargoMass) {
+   // let userProvidedCargoMass = document.querySelector("input[name=cargoMass]");
    if (userProvidedCargoMass <= 10000) {
-      document.getElementById("cargoStatus").innerHTML = input[cargoMass] + "Cargo mass is low enough for launch";
+      document.getElementById("cargoStatus").innerHTML = userProvidedCargoMass + "Cargo mass is low enough for launch";
       document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
       document.getElementById("launchStatus").style.color = "green";
    } else {
-      document.getElementById("faultyItems").style.visibility = visible;
-      document.getElementById("cargoStatus").innerHTML = input[cargoMass] + "Cargo mass is too high for launch";
+      document.getElementById("faultyItems").style.visibility = "visible";
+      document.getElementById("cargoStatus").innerHTML = userProvidedCargoMass + "Cargo mass is too high for launch";
       document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
       document.getElementById("launchStatus").style.color = "red";
    }
