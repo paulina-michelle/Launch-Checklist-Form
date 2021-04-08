@@ -25,6 +25,39 @@ window.addEventListener("load", function() {
 });
 
 
+function updateCrewNames() {
+   document.getElementById("pilotStatus").innerHTML = "Pilot" + input[pilotName] + "is ready for launch";
+   document.getElementById("copilotStatus").innerHTML = "Co-pilot" + input[copilotName] + "is ready for launch";
+}
+
+function updateFuelLevelStatus() {
+   let userProvidedFuelLevel = input[fuelLevel];
+   if (userProvidedFuelLevel >= 10000) {//fuel level is above threshold then print below message... else add a line about fuel too low   
+      document.getElementById("fuelStatus").innerHTML = input[fuelLevel] + "Fuel level is high enough for launch";
+      document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
+      document.getElementById("launchStatus").style.color = "green";
+   } else {
+      document.getElementById("faultyItems").style.visibility = visible;
+      document.getElementById("fuelStatus").innerHTML = input[fuelLevel] + "Fuel level is too low for launch";
+      document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+      document.getElementById("launchStatus").style.color = "red";
+   } 
+}
+
+function updateCargoMassStatus() {
+   let userProvidedCargoMass = input[cargoMass];
+   if (userProvidedCargoMass <= 10000) {
+      document.getElementById("cargoStatus").innerHTML = input[cargoMass] + "Cargo mass is low enough for launch";
+      document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
+      document.getElementById("launchStatus").style.color = "green";
+   } else {
+      document.getElementById("faultyItems").style.visibility = visible;
+      document.getElementById("cargoStatus").innerHTML = input[cargoMass] + "Cargo mass is too high for launch";
+      document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+      document.getElementById("launchStatus").style.color = "red";
+   }
+}
+
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
