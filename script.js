@@ -23,7 +23,7 @@ window.addEventListener("load", function() {
          updateCrewNames(userProvidedPilotName, userProvidedCopilotName);
          updateFuelLevelAndCargoMassStatus(userProvidedFuelLevel, userProvidedCargoMass);
       };
-
+   });
       
       fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
       response.json().then(function(json) {
@@ -41,7 +41,6 @@ window.addEventListener("load", function() {
       `;  
       });
       });
-   });
 });
 
 
