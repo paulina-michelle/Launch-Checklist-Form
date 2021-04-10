@@ -10,29 +10,23 @@ window.addEventListener("load", function() {
       let cargoMass = document.querySelector("input[name=cargoMass]");
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("All fields are required!");
-      }
-      if (isNaN(pilotName.value) === false || isNaN(copilotName.value) === false) {
+      } else if (isNaN(pilotName.value) === false || isNaN(copilotName.value) === false) {
          alert("Make sure to enter valid information for each field.");
-      }
-      if (isNaN(fuelLevel.value) === true || isNaN(cargoMass.value) === true) {
+      } else if (isNaN(fuelLevel.value) === true || isNaN(cargoMass.value) === true) {
          alert("Make sure to enter valid information for each field.");
-      }
-      
-      let userProvidedPilotName = document.querySelector("input[name=pilotName]").value;
-      let userProvidedCopilotName = document.querySelector("input[name=copilotName]").value;
-      let userProvidedFuelLevel = document.querySelector("input[name=fuelLevel]").value;
-      let userProvidedCargoMass = document.querySelector("input[name=cargoMass]").value;
+      } else {
+         let userProvidedPilotName = document.querySelector("input[name=pilotName]").value;
+         let userProvidedCopilotName = document.querySelector("input[name=copilotName]").value;
+         let userProvidedFuelLevel = document.querySelector("input[name=fuelLevel]").value;
+         let userProvidedCargoMass = document.querySelector("input[name=cargoMass]").value;
    
-      
-      updateCrewNames(userProvidedPilotName, userProvidedCopilotName);
-      updateFuelLevelAndCargoMassStatus(userProvidedFuelLevel, userProvidedCargoMass);
+         updateCrewNames(userProvidedPilotName, userProvidedCopilotName);
+         updateFuelLevelAndCargoMassStatus(userProvidedFuelLevel, userProvidedCargoMass);
+      };
 
       
-      const json = fetch("https://handlers.education.launchcode.org/static/planets.json"
-      ).then((resolvedPromiseResponse, index) =>
-         resolvedPromiseResponse.json()
-            .then((promiseJson) => console.log("json", promiseJson)
-         ));
+      fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+      response.json().then(function(json) {
       const destination = document.getElementById("missionTarget");
       destination.innerHTML = `
       <h2>Mission Destination</h2>
@@ -45,8 +39,11 @@ window.addEventListener("load", function() {
       </ol>
       <img src="${json[2].image}">
       `;  
+      });
+      });
    });
 });
+
 
 
 
@@ -84,7 +81,6 @@ function updateFuelLevelAndCargoMassStatus(userProvidedFuelLevel, userProvidedCa
 
 
 }
-
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
