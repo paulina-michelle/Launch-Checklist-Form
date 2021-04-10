@@ -32,8 +32,8 @@ window.addEventListener("load", function() {
       fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
          response.json().then(function(json) {
             console.log(json);
-         };
-         )};
+         });
+         });
       const destination = document.getElementById("missionTarget");
       destination.innerHTML = `
       <h2>Mission Destination</h2>
@@ -47,9 +47,8 @@ window.addEventListener("load", function() {
       <img src="${json[2].image}">
       `;
       
-   )
-   };
-)};
+   });
+});
 
 
 
