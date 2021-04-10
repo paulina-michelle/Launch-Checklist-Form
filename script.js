@@ -28,12 +28,11 @@ window.addEventListener("load", function() {
       updateFuelLevelAndCargoMassStatus(userProvidedFuelLevel, userProvidedCargoMass);
 
       
-      let json = [];
-      fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
-         response.json().then(function(json) {
-            console.log(json);
-         });
-         });
+      const json = fetch("https://handlers.education.launchcode.org/static/planets.json"
+      ).then((resolvedPromiseResponse, index) =>
+         resolvedPromiseResponse.json()
+            .then((promiseJson) => console.log("json", promiseJson)
+         ));
       const destination = document.getElementById("missionTarget");
       destination.innerHTML = `
       <h2>Mission Destination</h2>
@@ -45,8 +44,7 @@ window.addEventListener("load", function() {
          <li>Number of Moons: ${json[2].moons}</li>
       </ol>
       <img src="${json[2].image}">
-      `;
-      
+      `;  
    });
 });
 
@@ -59,7 +57,6 @@ function updateCrewNames(userProvidedPilotName, userProvidedCopilotName) {
 
 function updateFuelLevelAndCargoMassStatus(userProvidedFuelLevel, userProvidedCargoMass) {
    let launchStatusMessage = document.getElementById("launchStatus");
-   console.log(userProvidedFuelLevel);
    if (userProvidedFuelLevel >= 10000 && userProvidedCargoMass <= 10000) {  
       document.getElementById("fuelStatus").innerHTML = `${userProvidedFuelLevel} Fuel level is high enough for launch`;
       document.getElementById("cargoStatus").innerHTML = `${userProvidedCargoMass} Cargo mass is low enough for launch`;
